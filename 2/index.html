@@ -15,7 +15,7 @@
             <div class="text-field-container row">
                 <div class="text-field">
                     <input type="text" placeholder="Назва товару">
-                    <button class="button line-bottom">Додати</button>
+                    <button class="button line-bottom tooltip-button" data-tooltip="Foobar">Додати</button>
                 </div>
             </div>
             <div class="row-spacer"></div>
@@ -24,18 +24,18 @@
                     <span class="crossed product-name">Помідори</span>
                 </div>
                 <div class="row-column center-content">
-                    <span class="circle-button minus hidden-opacity">
+                    <span class="circle-button minus hidden-opacity tooltip-button" data-tooltip="Minus button">
                         <span class="button-text">-</span>
                     </span>
                     <span class="product-count-container">
                         <span class="product-count-text">2</span>
                     </span>
-                    <span class="circle-button plus hidden-opacity">
+                    <span class="circle-button plus hidden-opacity tooltip-button" data-tooltip="Plus button">
                         <span class="button-text">+</span>
                     </span>
                 </div>
                 <div class="row-column right-content">
-                    <div class="buy-button line-bottom">Не куплено</div>
+                    <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Не куплено</div>
                 </div>
             </div>
             <div class="row-spacer"></div>
@@ -44,19 +44,19 @@
                     <span class="product-name">Печиво</span>
                 </div>
                 <div class="row-column center-content">
-                    <span class="circle-button minus">
+                    <span class="circle-button minus tooltip-button" data-tooltip="Minus button">
                         <span class="button-text">-</span>
                     </span>
                     <span class="product-count-container">
                         <span class="product-count-text">2</span>
                     </span>
-                    <span class="circle-button plus">
+                    <span class="circle-button plus tooltip-button" data-tooltip="Plus button">
                         <span class="button-text">+</span>
                     </span>
                 </div>
                 <div class="row-column right-content">
-                    <div class="buy-button line-bottom">Куплено</div>
-                    <span class="square-button minus line-bottom">
+                    <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Куплено</div>
+                    <span class="square-button minus line-bottom tooltip-button" data-tooltip="X">
                         <span class="button-text">x</span>
                     </span>
                 </div>
@@ -67,19 +67,19 @@
                     <span class="product-name">Сир</span>
                 </div>
                 <div class="row-column center-content">
-                    <span class="circle-button minus disabled-opacity">
+                    <span class="circle-button minus disabled-opacity tooltip-button" data-tooltip="Minus button">
                         <span class="button-text">-</span>
                     </span>
                     <span class="product-count-container">
                         <span class="product-count-text">1</span>
                     </span>
-                    <span class="circle-button plus">
+                    <span class="circle-button plus tooltip-button" data-tooltip="Plus button">
                         <span class="button-text">+</span>
                     </span>
                 </div>
                 <div class="row-column right-content">
-                    <div class="buy-button line-bottom">Куплено</div>
-                    <span class="square-button minus line-bottom">
+                    <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Куплено</div>
+                    <span class="square-button minus line-bottom tooltip-button" data-tooltip="X">
                         <span class="button-text">x</span>
                     </span>
                 </div>
@@ -113,6 +113,16 @@
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div class="badge">
+        <span class="buy-list">Buy list</span>
+        <span class="additional-text">
+            <span class="created-by">Created by:</span>
+            <br>
+            <span class="name">Andrii Permiakov</span>
+        </span>
     </div>
 
 </body>
