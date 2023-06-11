@@ -119,6 +119,10 @@ body {
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .line-bottom {
@@ -184,6 +188,10 @@ body {
     position: relative;
     cursor: pointer;
     margin: 0 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .minus {
@@ -196,6 +204,7 @@ body {
 
 .hidden-opacity {
     opacity: 0;
+    cursor: default;
 }
 
 .disabled-opacity {
@@ -224,6 +233,10 @@ body {
     font-size: 16px;
     cursor: pointer;
     position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .square-button {
@@ -234,6 +247,10 @@ body {
     position: relative;
     cursor: pointer;
     margin: 0 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* MARK: - Tooltip */

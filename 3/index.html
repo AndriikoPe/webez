@@ -3,9 +3,8 @@
 
 <head lang="uk">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Page</title>
-
-
     <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 
@@ -14,74 +13,77 @@
         <div class="white-card products-container">
             <div class="text-field-container row">
                 <div class="text-field">
-                    <input type="text" placeholder="Назва товару">
-                    <button class="button line-bottom tooltip-button" data-tooltip="Foobar">Додати</button>
+                    <input id="add-product-input" type="text" placeholder="Назва товару">
+                    <button class="button line-bottom tooltip-button" data-tooltip="Foobar"
+                        onclick="addProduct()">Додати</button>
                 </div>
             </div>
-            <div class="row-spacer"></div>
-            <div class="row-add">
-                <div class="row-column">
-                    <span class="crossed product-name">Помідори</span>
+            <div id="product-list-container">
+                <div class="row-spacer"></div>
+                <div class="row-add">
+                    <div class="row-column">
+                        <span class="crossed product-name">Помідори</span>
+                    </div>
+                    <div class="row-column center-content">
+                        <span class="circle-button minus hidden-opacity tooltip-button" data-tooltip="Minus button">
+                            <span class="button-text">-</span>
+                        </span>
+                        <span class="product-count-container">
+                            <span class="product-count-text">2</span>
+                        </span>
+                        <span class="circle-button plus hidden-opacity tooltip-button" data-tooltip="Plus button">
+                            <span class="button-text">+</span>
+                        </span>
+                    </div>
+                    <div class="row-column right-content">
+                        <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Не куплено</div>
+                    </div>
                 </div>
-                <div class="row-column center-content">
-                    <span class="circle-button minus hidden-opacity tooltip-button" data-tooltip="Minus button">
-                        <span class="button-text">-</span>
-                    </span>
-                    <span class="product-count-container">
-                        <span class="product-count-text">2</span>
-                    </span>
-                    <span class="circle-button plus hidden-opacity tooltip-button" data-tooltip="Plus button">
-                        <span class="button-text">+</span>
-                    </span>
+                <div class="row-spacer"></div>
+                <div class="row-add">
+                    <div class="row-column">
+                        <span class="product-name">Печиво</span>
+                    </div>
+                    <div class="row-column center-content">
+                        <span class="circle-button minus tooltip-button" data-tooltip="Minus button">
+                            <span class="button-text">-</span>
+                        </span>
+                        <span class="product-count-container">
+                            <span class="product-count-text">2</span>
+                        </span>
+                        <span class="circle-button plus tooltip-button" data-tooltip="Plus button">
+                            <span class="button-text">+</span>
+                        </span>
+                    </div>
+                    <div class="row-column right-content">
+                        <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Куплено</div>
+                        <span class="square-button minus line-bottom tooltip-button" data-tooltip="X">
+                            <span class="button-text">x</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="row-column right-content">
-                    <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Не куплено</div>
-                </div>
-            </div>
-            <div class="row-spacer"></div>
-            <div class="row-add">
-                <div class="row-column">
-                    <span class="product-name">Печиво</span>
-                </div>
-                <div class="row-column center-content">
-                    <span class="circle-button minus tooltip-button" data-tooltip="Minus button">
-                        <span class="button-text">-</span>
-                    </span>
-                    <span class="product-count-container">
-                        <span class="product-count-text">2</span>
-                    </span>
-                    <span class="circle-button plus tooltip-button" data-tooltip="Plus button">
-                        <span class="button-text">+</span>
-                    </span>
-                </div>
-                <div class="row-column right-content">
-                    <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Куплено</div>
-                    <span class="square-button minus line-bottom tooltip-button" data-tooltip="X">
-                        <span class="button-text">x</span>
-                    </span>
-                </div>
-            </div>
-            <div class="row-spacer"></div>
-            <div class="row-add">
-                <div class="row-column">
-                    <span class="product-name">Сир</span>
-                </div>
-                <div class="row-column center-content">
-                    <span class="circle-button minus disabled-opacity tooltip-button" data-tooltip="Minus button">
-                        <span class="button-text">-</span>
-                    </span>
-                    <span class="product-count-container">
-                        <span class="product-count-text">1</span>
-                    </span>
-                    <span class="circle-button plus tooltip-button" data-tooltip="Plus button">
-                        <span class="button-text">+</span>
-                    </span>
-                </div>
-                <div class="row-column right-content">
-                    <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Куплено</div>
-                    <span class="square-button minus line-bottom tooltip-button" data-tooltip="X">
-                        <span class="button-text">x</span>
-                    </span>
+                <div class="row-spacer"></div>
+                <div class="row-add">
+                    <div class="row-column">
+                        <span class="product-name">Сир</span>
+                    </div>
+                    <div class="row-column center-content">
+                        <span class="circle-button minus disabled-opacity tooltip-button" data-tooltip="Minus button">
+                            <span class="button-text">-</span>
+                        </span>
+                        <span class="product-count-container">
+                            <span class="product-count-text">1</span>
+                        </span>
+                        <span class="circle-button plus tooltip-button" data-tooltip="Plus button">
+                            <span class="button-text">+</span>
+                        </span>
+                    </div>
+                    <div class="row-column right-content">
+                        <div class="buy-button line-bottom tooltip-button" data-tooltip="Foo">Куплено</div>
+                        <span class="square-button minus line-bottom tooltip-button" data-tooltip="X">
+                            <span class="button-text">x</span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,6 +127,7 @@
         </span>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
