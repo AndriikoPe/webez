@@ -40,6 +40,7 @@ function renderProduct(product) {
   }
 
   productName.textContent = product.name;
+  productName.onclick = () => { onEdit(productName) };
   nameColumn.appendChild(productName);
   productEntry.appendChild(nameColumn);
 
@@ -243,6 +244,48 @@ function createRowAt(index) {
   }
 }
 
+// MARK: - Edit.
+
+function onEdit(element) {
+  const name = element.textContent;
+  const index = products.findIndex(pr => pr.name == name);
+
+  if (index == -1) { return; }
+
+  let product = products[index];
+
+  if (product.bought) { return; }
+
+  let input = document.createElement('input');
+  input.value = name;
+  element.parentNode.replaceChild(input, element);
+  input.focus();
+  
+  let onEndEditing = () => {
+    const newName = input.value;
+  
+    element.textContent = newName;
+    input.parentNode.replaceChild(element, input);
+
+    product.name = newName;
+  };
+
+  input.addEventListener('blur', onEndEditing);
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      onEndEditing();
+    }
+  });
+}
+
 // MARK: - Initial setup.
 
 renderAllProducts();
+
+document
+  .getElementById("add-product-input")
+  .addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      addProduct();
+    }
+  });
