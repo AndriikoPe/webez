@@ -7,7 +7,7 @@ let products = [
   { name: "Сир", count: 1, bought: false }
 ];
 
-// MARK: - Rendering.
+// MARK: - Rendering products.
 
 function renderAllProducts() {
   const productList = document.getElementById("product-list-container");
@@ -137,6 +137,46 @@ function rerenderRowAt(index) {
   createRowAt(index);
 }
 
+// MARK: - Rendering left/bought.
+
+function rerenderBought(isBought) {
+  const container = document.getElementById(
+    isBought ? "products-bought" : "products-left");
+  container.innerHTML = "";
+
+  products
+    .filter(({ bought }) => bought == isBought)
+    .forEach(product => {
+      const productItem = document.createElement("div");
+      productItem.className = "product-item";
+
+      const itemText = document.createElement("span");
+      itemText.className = "item-text";
+      if (isBought) {
+        itemText.className += " crossed";
+      }
+      itemText.textContent = product.name;
+
+      const amount = document.createElement("span");
+      amount.className = "amount";
+      if (isBought) {
+        amount.className += " crossed";
+      }
+
+      amount.textContent = product.count;
+
+      productItem.appendChild(itemText);
+      productItem.appendChild(amount);
+
+      container.appendChild(productItem);
+    });
+}
+
+function rerenderFullCart() {
+  rerenderBought(false);
+  rerenderBought(true);
+}
+
 // MARK: - Add/remove.
 
 function addProduct() {
@@ -163,6 +203,7 @@ function addProduct() {
 
   input.value = "";
   input.focus();
+  rerenderBought(false);
 }
 
 function remove(product) {
@@ -174,6 +215,8 @@ function remove(product) {
   products.splice(index, 1);
 
   console.log("Removing " + product.name + " at index " + index);
+
+  rerenderBought(product.bought);
 }
 
 // MARK: - Buy/unbuy.
@@ -185,6 +228,7 @@ function buy(product) {
 
   product.bought = true;
   rerender(product);
+  rerenderFullCart();
 }
 
 function unbuy(product) {
@@ -192,6 +236,7 @@ function unbuy(product) {
 
   product.bought = false;
   rerender(product);
+  rerenderFullCart();
 }
 
 // MARK: - Plus/minus.
@@ -201,6 +246,7 @@ function didTapMinusOn(product) {
 
   product.count--;
   rerender(product);
+  rerenderBought(product.bought);
 }
 
 function didtapPlusOn(product) {
@@ -208,6 +254,7 @@ function didtapPlusOn(product) {
 
   product.count++;
   rerender(product);
+  rerenderBought(product.bought);
 }
 
 // MARK: - Helping funcs.
@@ -260,14 +307,15 @@ function onEdit(element) {
   input.value = name;
   element.parentNode.replaceChild(input, element);
   input.focus();
-  
+
   let onEndEditing = () => {
     const newName = input.value;
-  
+
     element.textContent = newName;
     input.parentNode.replaceChild(element, input);
 
     product.name = newName;
+    rerenderBought(product.bought);
   };
 
   input.addEventListener('blur', onEndEditing);
@@ -281,6 +329,7 @@ function onEdit(element) {
 // MARK: - Initial setup.
 
 renderAllProducts();
+rerenderFullCart();
 
 document
   .getElementById("add-product-input")
